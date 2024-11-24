@@ -32,7 +32,7 @@ app.timer('wmc-payer-func', {
 
         try {
             // IDs de prueba (estos serán dinámicos en producción, por ejemplo, desde una API)
-            const agreementIds = [3]; // Ejemplo de IDs de acuerdos
+            const agreementIds = [4]; // Ejemplo de IDs de acuerdos
 
             context.log(`Procesando el lote de acuerdos: ${agreementIds}`);
 
