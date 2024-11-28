@@ -26,13 +26,16 @@ const contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, wallet);
 
 // Manejador de la Azure Function
 app.timer('wmc-payer-func', {
-    //schedule: '*/1 * * * * *', //'0 */5 * * * *', // Actualmente se ejecuta cada 5 minutos (ajústalo a diario si es necesario) // Se activa solo para pruebas
+    schedule: '0 0 5 * * *', //Diario 5am UTC = 12am Colombia //'*/1 * * * * *' Cada segundo, //'0 */5 * * * *' Cada 5 min
     handler: async (myTimer, context) => {
         context.log('Función programada activada el ', new Date().toISOString());
 
         try {
             // IDs de prueba (estos serán dinámicos en producción, por ejemplo, desde una API)
-            const agreementIds = [4]; // Ejemplo de IDs de acuerdos
+            //const agreementIds = [0,1,2,3,4,5,6,7,8]; // Ejemplo de IDs de acuerdos
+            //TODO: Por ahora la función pagará todos los acuerdos del 0 al 1000 (los que ya haya pagado, no los pagará de nevo), 
+            //      mientras se implementa el query de los IDs que se deban pagar cada día.
+            const agreementIds = Array.from({ length: 501 }, (_, i) => i);
 
             context.log(`Procesando el lote de acuerdos: ${agreementIds}`);
 
