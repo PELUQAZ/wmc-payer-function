@@ -26,9 +26,9 @@ const contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, wallet);
 
 // Manejador de la Azure Function
 app.timer('wmc-payer-func', {
-    schedule: '*/1 * * * * *', //'0 */5 * * * *', // Actualmente se ejecuta cada 5 minutos (ajústalo a diario si es necesario) // "0 0 1 * * *"
+    //schedule: '*/1 * * * * *', //'0 */5 * * * *', // Actualmente se ejecuta cada 5 minutos (ajústalo a diario si es necesario) // Se activa solo para pruebas
     handler: async (myTimer, context) => {
-        context.log('Timer function triggered at', new Date().toISOString());
+        context.log('Función programada activada el ', new Date().toISOString());
 
         try {
             // IDs de prueba (estos serán dinámicos en producción, por ejemplo, desde una API)
@@ -56,7 +56,7 @@ app.timer('wmc-payer-func', {
             const receipt = await tx.wait();
             context.log(`Transacción confirmada. Hash: ${receipt.transactionHash}`);
         } catch (error) {
-            context.log(`Error al procesar los acuerdos: ${error.message}`);
+            context.error(`Error al procesar los acuerdos: ${error.message}`);
         }
     }
 });

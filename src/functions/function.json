@@ -1,10 +1,11 @@
 {
+    "_comment": "Se ejecuta la función a las 5 AM UTC = 12 AM hora de Colombia",
     "bindings": [
         {
             "name": "myTimer",
             "type": "timerTrigger",
             "direction": "in",
-            "schedule": "*/1 * * * * *" 
+            "schedule": "0 0 5 * * *" 
         }
     ]
 }
