@@ -52,7 +52,8 @@ app.timer('wmc-payer-func', {
     //'0 * * * * *', //Cada minuto 
     //'0 0 * * * *', //Cada hora  
     //'0 0 */12 * * *', //Cada 12 horas
-    schedule: '0 0 0 * * *', //Cada 24 horas a las 12:00 am
+    //'0 0 0 * * *', //Cada 24 horas a las 12:00 am
+    schedule: '0 0 5 * * *', //Cada 24 horas a las 5:00 am (12am hora Colombia)
     handler: async (myTimer, context) => {
         context.log('Función programada activada el ', new Date().toISOString());
         context.log('');
