@@ -48,9 +48,9 @@ console.log("Contrato inicializado correctamente:", contract.address);
 
 // Manejador de la Azure Function
 app.timer('wmc-payer-func', { 
-    // '*/1 * * * * *', //Cada segundo
-    //'0 * * * * *', //Cada minuto
-    //'0 0 * * * *', //Cada hora 
+    // '*/1 * * * * *', //Cada segundo 
+    //'0 * * * * *', //Cada minuto 
+    //'0 0 * * * *', //Cada hora  
     //'0 0 */12 * * *', //Cada 12 horas
     schedule: '0 0 0 * * *', //Cada 24 horas a las 12:00 am
     handler: async (myTimer, context) => {
